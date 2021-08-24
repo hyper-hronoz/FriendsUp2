@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+        <variable
+            name="LoginViewModel"
+            type="com.example.friendsup.viewmodel.LoginViewModel" />
+    </data>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fillViewport="true"
+        android:paddingHorizontal="40dp"
+        tools:context=".view.LoginFragment">
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/login_fragment_heading"
+                style="@style/TextView.Heading.LoginHeading"
+                android:layout_marginBottom="20dp"
+                android:text="Login" />
+
+            <TextView
+                android:id="@+id/errors"
+                android:layout_marginBottom="20dp"
+                android:text="@{LoginViewModel.errors}"
+                android:textColor="#F44336"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                />
+
+            <EditText
+                android:id="@+id/login_fragment_email_edit_text"
+                style="@style/EditText.DefaultEditText"
+                android:layout_marginBottom="16dp"
+                android:text="@={LoginViewModel.EmailAddress}"
+                android:hint="Email" />
+
+            <EditText
+                android:id="@+id/login_fragment_password_edit_text"
+                style="@style/EditText.DefaultEditText"
+                android:text="@={LoginViewModel.Password}"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/login_fragment_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="43dp"
+                android:text="Forgot password?"
+                android:textColor="@color/blue"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/login_fragment_login_button"
+                style="@style/Button.LoginButton"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:visibility="visible"
+                android:onClick="@{(v) -> LoginViewModel.onClick(v)}"
+                />
+
+            <TextView
+                android:id="@+id/login_fragment_have_not_account"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="84dp"
+                android:text="Do not have an account?"
+                android:onClick="@{(v) -> LoginViewModel.onDonNotHaveAccountClick(v)}"
+                android:textColor="@color/blue"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FriendsUp</string>
+    <string name="shared_preferences">hello_there_____GENERAL_KENOBI____GENERAL_GRIVUS</string>
+    <string name="jwt_token">jwt_token</string>
+    <string name="user_email">user_email</string>
+    <string name="user_password">user_password</string>
+    <string name="user_registration">user_registration</string>
+</resources>

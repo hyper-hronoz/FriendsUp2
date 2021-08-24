@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="EmailConfirmationViewModel"
+            type="com.example.friendsup.viewmodel.EmailConfirmationViewModel" />
+    </data>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.authorization.EmailConfirmationFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="40dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/email_heading"
+                android:text="Email confirmation"
+                style="@style/TextView.Heading.LoginHeading"
+                android:layout_marginBottom="40dp"
+                />
+
+            <TextView
+                android:id="@+id/user_message"
+                style="@style/TextView.Heading.LoginHeading"
+                android:textSize="14sp"
+                tools:text="We've sent you a confirmation email + email \nplease confirm it to continue"
+                android:layout_marginBottom="40dp"
+                />
+
+            <Button
+                android:id="@+id/email_confirmed"
+                style="@style/Button.LoginButton"
+                android:layout_below="@+id/email_edit_text"
+                android:text="I've confirmed"
+                android:onClick="@{(v) -> EmailConfirmationViewModel.checkEmailConfirmedClick(v)}"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/do_not_receive"
+                style="@style/Button.LoginButton"
+                android:onClick="@{(v) -> EmailConfirmationViewModel.sendEmailClick(v)}"
+                android:layout_below="@+id/email_edit_text"
+                android:text="Do't receive?"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

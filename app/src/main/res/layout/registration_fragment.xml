@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="RegistrationViewModel"
+            type="com.example.friendsup.viewmodel.RegistrationViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:gravity="center_vertical"
+            tools:context=".fragments.authorization.registration.UserNameSernameFragment">
+
+
+            <TextView
+                android:id="@+id/name_sername_heading"
+                style="@style/TextView.Heading.LoginHeading"
+                android:text="What's your name?"
+                />
+
+            <TextView
+                android:id="@+id/errors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name_sername_heading"
+                android:layout_marginTop="14dp"
+                android:visibility="gone"
+                android:textColor="#F44336" />
+
+
+            <EditText
+                android:id="@+id/name_edit_text"
+                style="@style/EditText.DefaultEditText"
+                android:layout_below="@+id/errors"
+                android:text="@={RegistrationViewModel.firstName}"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Name" />
+
+            <EditText
+                android:id="@+id/sername_edit_text"
+                style="@style/EditText.DefaultEditText"
+                android:text="@={RegistrationViewModel.lastName}"
+                android:layout_below="@+id/name_edit_text"
+                android:layout_marginBottom="26dp"
+                android:hint="Last name" />
+
+
+            <TextView
+                android:id="@+id/gender_heading"
+                style="@style/TextView.Heading.LoginHeading"
+                android:layout_below="@+id/sername_edit_text"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="8dp"
+                android:text="Select gender"
+                />
+
+            <RadioGroup
+                android:id="@+id/select_gender_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gender_heading"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="43dp"
+                android:onCheckedChanged="@{RegistrationViewModel.onSplitTypeChanged}"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_men"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="Men" />
+
+                <RadioButton
+                    android:id="@+id/radio_women"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="Women" />
+
+                <RadioButton
+                    android:id="@+id/radio_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="Other" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/confirm_sername_name"
+                style="@style/Button.LoginButton"
+                android:layout_below="@+id/select_gender_radio_group"
+                android:text="Next"
+                android:onClick="@{(v) -> RegistrationViewModel.onRegistrationButtonClick(v)}"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/already_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/confirm_sername_name"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="59dp"
+                android:gravity="center"
+                android:onClick="@{(v) -> RegistrationViewModel.onAlreadyHaveAccount(v)}"
+                android:text="Already have an account?"
+                android:textColor="@color/blue"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+    </ScrollView>
+</layout>

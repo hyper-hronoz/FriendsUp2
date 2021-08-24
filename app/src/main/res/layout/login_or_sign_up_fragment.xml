@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="LoginSignUpViewModel"
+            type="com.example.friendsup.viewmodel.LoginOrSignUpViewModel" />
+    </data>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/login_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_or_sign_up_background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="40dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/welcomeText"
+                android:layout_marginBottom="43dp"
+                app:srcCompat="@drawable/ic_logo"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:id="@+id/welcomeText"
+                android:text="Welcome to FriedsUp"
+                android:layout_above="@+id/signUpButton"
+                android:textColor="@color/white"
+                android:layout_marginBottom="43dp"
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/signUpButton"
+                android:layout_above="@+id/loginButton"
+                android:layout_marginBottom="18dp"
+                android:text="Sign up "
+                style="@style/Button.LoginButton"
+                android:onClick="@{(v) -> LoginSignUpViewModel.onRegistrationClick(v)}"
+                android:textColor="@color/blue"
+                app:backgroundTint="#FFFFFF" />
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_above="@+id/terms"
+                android:layout_marginBottom="27dp"
+                style="@style/Button.LoginButton"
+                android:text="Login"
+                android:onClick="@{(v) -> LoginSignUpViewModel.onLoginClick(v)}"
+                android:textColor="@color/white"
+                app:backgroundTint="#00FFFFFF" />
+
+            <TextView
+                android:id="@+id/terms"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:text="By tapping Continue, Create account, I agree to Company's
+Terms of Service, Payments Terms of Service, Privacy Policy,
+and Non-discrimination Policy."
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+
+    </FrameLayout>
+</layout>
